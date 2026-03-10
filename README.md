@@ -4,7 +4,7 @@ SchulNetz is a lightweight school management / ERP-like application we are build
 It will help manage students, teachers, inventory, fees, attendance, purchases, sales, etc.
 
 **Important note for complete beginners:**  
-You **do NOT** need to install Node.js, npm, React, PostgreSQL, Visual Studio Code or any other development tools on your computer.  
+You **do NOT** need to install Node.js, npm, React, PostgreSQL or any other development tools on your computer.  
 **Everything runs inside Docker containers.**
 
 You only need **one program**: **Docker Desktop**.
