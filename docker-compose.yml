@@ -1,0 +1,60 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: schulnetz-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: weAdmin
+      POSTGRES_PASSWORD: pass123word
+      POSTGRES_DB: schulnetz
+    ports:
+      - "5433:5432"                  # Host 5433 → container 5432 (avoid conflict if you have local pg)
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U weAdmin"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: schulnetz-backend
+    restart: unless-stopped
+    volumes:
+      - ./backend:/app
+      - /app/node_modules            # preserve container's node_modules
+    ports:
+      - "4000:4000"
+    environment:
+      - NODE_ENV=development
+      - PORT=4000
+      - DATABASE_URL=postgresql://weAdmin:pass123word@db:5432/schulnetz?schema=public
+      - JWT_SECRET=change-this-to-very-long-random-string-2026
+    depends_on:
+      db:
+        condition: service_healthy
+    command: npm run dev               # assumes "dev": "nodemon src/index.js" or similar
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: schulnetz-frontend
+    restart: unless-stopped
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    ports:
+      - "5173:5173"                    # Vite default
+    environment:
+      - VITE_API_URL=http://localhost:4000
+      - NODE_ENV=development
+    command: npm run dev
+    depends_on:
+      - backend
+
+volumes:
+  db-data:
