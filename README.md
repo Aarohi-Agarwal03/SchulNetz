@@ -51,11 +51,11 @@ If anything goes wrong — take a screenshot of the error message and ask for he
 8. Wait until the whale icon appears in the top menu bar and shows Docker is running
 
 ## Step 1 – Download the project from GitHub (easiest way – no git needed)
-
+***Beginner Way***
 1. Open your browser
 2. Go to:  
    https://github.com/YOUR_GITHUB_USERNAME/SchulNetz  
-   (replace YOUR_GITHUB_USERNAME with the actual GitHub username)
+   (replace YOUR_GITHUB_USERNAME with the actual GitHub username that is hemantmaurya)
 
 3. Click the green **Code** button
 4. Click **Download ZIP**
@@ -63,6 +63,24 @@ If anything goes wrong — take a screenshot of the error message and ask for he
 6. Right-click `SchulNetz-main.zip` → **Extract All** (Windows)  
    or double-click it (Mac) to unzip
 7. Rename the extracted folder from `SchulNetz-main` to just `SchulNetz`
+
+***Professional way (Recomended)***
+
+1. Open your browser
+2. Go to:  
+   https://github.com/YOUR_GITHUB_USERNAME/SchulNetz  
+   (replace YOUR_GITHUB_USERNAME with the actual GitHub username that is hemantmaurya)
+
+3. Click the green **Code** button
+4. Copy link that is (https://github.com/hemantmaurya/SchulNetz.git) in our case
+5. Open Terminal(mac) or Command prompt(Widnows)
+6. Navigate to the folder you want the project to be.
+7. Just run the following command
+   git clone and the link that you just copied.
+   
+```
+git clone https://github.com/hemantmaurya/SchulNetz.git
+```
 
 ## Step 2 – Open Terminal / Command Prompt
 
