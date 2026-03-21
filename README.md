@@ -387,7 +387,7 @@ VALUES (
   'admin'
 );
 ```
-````
+
 http://localhost:4000/api/auth/register
 
 {
@@ -422,5 +422,68 @@ docker compose up -d --build backend
 ```
 docker compose logs backend --tail=40
 ```
+
+### Frontend Styling & Icons Setup
+
+To achieve a modern, clean, and Apple-like user interface, we integrated **Tailwind CSS** (via the official Vite plugin) and **Lucide React** icons.
+
+**Installation & Configuration Steps:**
+
+1. **Install Tailwind CSS with Vite plugin**
+
+2. **Add Tailwind to Vite configuration**  
+In `vite.config.js`:
+
+```js
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
+
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
+})
+```
+
+
+### Frontend Styling & Icons Setup Tailwind and  lucide for icons like apple
+
+To achieve a modern, clean, and Apple-like user interface, we integrated **Tailwind CSS** (via the official Vite plugin) and **Lucide React** icons.
+
+Follow these steps:
+
+
+***1. Install Tailwind CSS with Vite plugin***
+
+```
+npm install tailwindcss @tailwindcss/vite
+```
+***2. Add Tailwind to Vite configuration***
+***Open vite.config.js and add the tailwindcss plugin***
+***Full content should look like this:***
+```
+cat > vite.config.js <<EOL
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
+
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
+})
+EOL
+```
+
+***3. Import Tailwind in your CSS***
+***In index.css (or main.css), add the following line at the top***
+
+```
+echo '@import "tailwindcss";' >> src/index.css
+```
+
+***4. Install Lucide React for icons***
+
+```
+npm install lucide-react
+```
+***Done! Now you can use Tailwind CSS and Lucide icons in your React components***
 
 Good luck Hemant!
