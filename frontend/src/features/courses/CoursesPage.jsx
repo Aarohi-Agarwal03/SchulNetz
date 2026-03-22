@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+// import API from "../services/api";
+import API from "../../lib/api.js"
 
 function CoursesPage() {
     const [courses, setCourses] = useState([]);
@@ -8,10 +10,16 @@ function CoursesPage() {
     const [editingId, setEditingId] = useState(null);
 
     // Fetch courses
+    // const fetchCourses = async () => {
+    //     const res = await axios.get("http://localhost:4000/api/courses");
+    //     setCourses(res.data);
+    // };
+
     const fetchCourses = async () => {
-        const res = await axios.get("http://localhost:4000/api/courses");
+        const res = await API.get("/api/courses");
         setCourses(res.data);
     };
+
 
     useEffect(() => {
         fetchCourses();
@@ -36,11 +44,11 @@ function CoursesPage() {
         e.preventDefault();
 
         if (editingId) {
-            await axios.put(`http://localhost:4000/api/courses/${editingId}`, {
+            await API.put(`/courses/${editingId}`, {
                 name,
             });
         } else {
-            await axios.post("http://localhost:4000/api/courses", { name });
+            await API.post("/courses", { name });
         }
 
         setOpen(false);
@@ -51,7 +59,7 @@ function CoursesPage() {
     const handleDelete = async (id) => {
         if (!confirm("Are you sure?")) return;
 
-        await axios.delete(`http://localhost:4000/api/courses/${id}`);
+        await API.delete(`/courses/${id}`);
         fetchCourses();
     };
 

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Mail, Lock } from "lucide-react";
-import axios from "axios";
+// import axios from "axios";
+import API from "../lib/api.js";
 
 function Login() {
     const navigate = useNavigate();
@@ -15,7 +16,11 @@ function Login() {
         setMessage("");
 
         try {
-            const res = await axios.post("http://localhost:4000/api/auth/login", {
+            // const res = await axios.post("http://localhost:4000/api/auth/login", {
+            //     email,
+            //     password,
+            // });
+            const res = await API.post("/auth/login", {
                 email,
                 password,
             });

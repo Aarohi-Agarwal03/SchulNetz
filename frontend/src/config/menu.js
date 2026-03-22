@@ -28,6 +28,9 @@ export const menuItems = [
     {
         name: "Settings",
         icon: Settings,
-        path: "/settings",
+        children: [
+            { name: "Courses", path: "/courses" },
+            { name: "Departments", path: "/departments" }
+        ]
     },
 ];
