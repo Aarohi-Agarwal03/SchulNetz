@@ -3,6 +3,7 @@ import Login from "../pages/Login";
 import Layout from "../components/layout/Layout";
 import AdminDashboard from "../pages/AdminDashboard";
 import GeneralDashboard from "../pages/GeneralDashboard";
+import Testing from "../pages/Testing";
 
 function AppRouter() {
     return (
@@ -26,6 +27,16 @@ function AppRouter() {
                     element={
                         <Layout>
                             <GeneralDashboard />
+                        </Layout>
+                    } 
+                />
+
+                {/* Testing Page - Inside Layout */}
+                <Route 
+                    path="/testing" 
+                    element={
+                        <Layout>
+                            <Testing />
                         </Layout>
                     } 
                 />

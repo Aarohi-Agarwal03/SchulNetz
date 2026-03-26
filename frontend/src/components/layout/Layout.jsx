@@ -14,8 +14,8 @@ function Layout({ children }) {
 
                 {/* CONTENT AREA */}
                 <div className="flex-1 p-6">
-                    {/* {children} */}
-                    <h1>Admin</h1>
+                     {children}
+                    {/*<h1>Admin</h1>*/}
                 </div>
 
                 {/* FOOTER */}
