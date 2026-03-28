@@ -1,7 +1,11 @@
 import express from 'express';
 import cors from 'cors';
 import authRoutes from './routes/auth.routes.js';
+<<<<<<< Updated upstream
 import testingRoutes from './routes/testing.routes.js'
+=======
+import studentRoutes from './routes/student.routes.js';
+>>>>>>> Stashed changes
 
 const app = express();
 
@@ -10,6 +14,7 @@ app.use(express.json());
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api', studentRoutes);
 
 app.use('/api/testing', testingRoutes);
 
